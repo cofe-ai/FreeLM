@@ -1,14 +1,13 @@
-### [中](README_zh.md)|En
+### 中|[En](README.md)
 
 # FreeLM: Fine-Tuning-Free Language Model
 
+## 下载 Checkpoint
+您可以从这个[链接](https://pan.baidu.com/s/1sI1CgWmunxtvpO_bfesJrA?pwd=m8wr)下载我们已经训练好的模型文件. 提取码: m8wr
 
-## Download Checkpoint
-You can download the model files we have trained from this [link](https://pan.baidu.com/s/1sI1CgWmunxtvpO_bfesJrA?pwd=m8wr). This is the extraction code: m8wr
 
-
-## Quick Run
-1. Load Model & Tokenizer
+## 快速执行
+1. 加载模型 和 Tokenizer
 ```python
 import torch
 from transformers import GPT2Tokenizer
@@ -20,7 +19,7 @@ tokenizer = GPT2Tokenizer.from_pretrained(checkpoint_path)
 model = FreeLMModel.from_pretrained(checkpoint_path).to(device)
 ```
 
-2. Generation
+2. 生成
 ```python
 input_text = 'Hello'
 model.eval()
@@ -38,7 +37,7 @@ output_text = tokenizer.decode(output['sequences'][0], skip_special_tokens=True)
 print(output_text)
 ```
 
-3. Understanding 
+3. 理解 
 ```python
 test_text = [
     "i can tell you that there's no other reason why anyone should bother remembering it. [sep] Here, the movie review is emotionally negative. [cls]",
@@ -52,9 +51,9 @@ print(f"The probability that text 1 is correct = {probs[0][1]}")
 print(f"The probability that text 2 is correct = {probs[1][1]}")
 ```
 
-## Citation
+# 引用
 
-If you find our work useful, please consider citing FreeLM:
+如何我们的工作对您产生了帮助，请引用FreeLM的论文：
 ```
 @article{freelm,
   author       = {Xiang Li and Xin Jiang and Xuying Meng and Aixin Sun and Yequan Wang},
